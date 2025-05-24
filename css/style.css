@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Montserrat:wght@400;700&display=swap');
+
+:root {
+  --pink: #ff4d6d;
+  --light: #fff0f3;
+  --text: #590d22;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--light);
+  color: var(--text);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Seções fullscreen */
+.tela {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: 1rem;
+}
+
+.invisivel {
+  display: none !important;
+}
+
+/* Botões */
+.btn {
+  background: var(--pink);
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* Emoji pulsante */
+.emoji {
+  font-size: 4rem;
+}
+.pulsar {
+  animation: pulsar 1s infinite ease-in-out;
+}
+@keyframes pulsar {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.2); }
+}
+
+/* Texto "Preparada?" */
+.preparada {
+  margin-top: 1rem;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+.preparada.aparecer {
+  opacity: 1;
+}
+
+/* Texto romântico (único, sem rolagem) */
+.texto-rolagem {
+  overflow: visible;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin: 1rem auto;
+  text-align: left;
+  width: 100%;
+  max-width: 500px;
+}
+
+/* Cabeçalho cursivo */
+header h1 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.5rem;
+  color: var(--pink);
+  margin-bottom: 1rem;
+}
+
+/* Swiper */
+.swiper-container {
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+.swiper-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.swiper-slide img {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.swiper-slide .caption {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: var(--text);
+  font-weight: 500;
+}
+/* Pagination abaixo das imagens */
+.swiper-pagination {
+  position: relative;
+  margin-top: 1rem;
+  text-align: center;
+}
+.swiper-pagination-bullet {
+  background: var(--pink);
+}
+
+/* Hearts animation */
+.heart {
+  position: absolute;
+  top: 0;
+  font-size: 1.5rem;
+  color: var(--pink);
+  animation: fall linear forwards;
+}
+@keyframes fall {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+}
+
+/* Fireworks animation */
+.firework {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--pink);
+  border-radius: 50%;
+  animation: explode 0.7s ease-out forwards;
+}
+@keyframes explode {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(6); opacity: 0; }
+}
+
+/* Player */
+.btn-music {
+  background: transparent;
+  border: 2px solid var(--text);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  margin: 1rem 0;
+  transition: background 0.3s;
+}
+.btn-music:hover {
+  background: rgba(89,13,34,0.1);
+}
+
+/* Proposta final */
+.proposta p {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+}
+.btn-duplo {
+  margin: 0.5rem;
+}
+.tech-prob {
+  font-size: 0.9rem;
+  color: gray;
+}
+
+/* Layout específico da Tela Principal */
+#tela-principal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* Tela Final - Design melhorado */
+#tela-final {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+}
+#tela-final.invisivel {
+  display: none !important;
+}
+#tela-final h1 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3rem;
+  color: var(--pink);
+  margin-bottom: 1rem;
+  animation: pop 0.6s ease-in-out;
+}
+@keyframes pop {
+  0% { transform: scale(0); }
+  60% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+#tela-final::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../img/confetti.png');
+  background-size: cover;
+  opacity: 0.2;
+  pointer-events: none;
+}
+.updates {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+.updates p {
+  background: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  font-size: 1.1rem;
+}
+/* Responsividade */
+@media (max-width: 390px) and (max-height: 844px) {
+  .btn, .updates {
+    width: 100%;
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+html { scroll-behavior: smooth; }
